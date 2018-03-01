@@ -1,8 +1,15 @@
 """Views for blog app."""
-from django.views.generic import TemplateView
+from django.views.generic import ListView
+from posts.models import Post
 
 
-class HomeView(TemplateView):
+class HomeView(ListView):
     """Home page view."""
 
     template_name = 'blog/home.html'
+    model = Post
+
+    def get_context_data(self, **kwargs):
+        """Get data from post model."""
+        context = super().get_context_data(**kwargs)
+        return context
