@@ -2,6 +2,8 @@
 
 {% block body %}
     
-    detail view
+    <h1>{{ object.title }}</h1>
+    <p>{{ object.body }}</p>
+    <p>Published: {{ object.publication_date|date }}</p>
 
 {% endblock %}

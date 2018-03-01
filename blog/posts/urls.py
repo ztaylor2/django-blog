@@ -6,7 +6,7 @@ urlpatterns = [
     url(r'^create/$',
         CreateView.as_view(),
         name='create'),
-    url(r'^detail/$',
+    url(r'^detail/(?P<pk>\d+)/$',
         DetailView.as_view(),
         name='detail'),
     url(r'^update/(?P<pk>\d+)/$',
