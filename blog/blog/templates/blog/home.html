@@ -9,9 +9,6 @@
                 {{ post.date_published|date }} - {{ post.title }}
                 {{ post.body }}
                 <a href="{% url 'detail' post.pk %}">More</a>
-
-                <!-- if user is authenticated -->
-                <a href="{% url 'update' post.pk %}">Update post</a>
             </li>
         {% empty %}
             <li>No posts yet.</li>
