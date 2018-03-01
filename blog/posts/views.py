@@ -2,10 +2,14 @@
 from django.views.generic import CreateView, UpdateView, DetailView
 from posts.models import Post
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class CreateView(CreateView):
+class CreateView(LoginRequiredMixin, CreateView):
     """Create view."""
+
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
 
     template_name = 'posts/create.html'
     model = Post
@@ -13,8 +17,11 @@ class CreateView(CreateView):
     success_url = reverse_lazy('home')
 
 
-class UpdateView(UpdateView):
+class UpdateView(LoginRequiredMixin, UpdateView):
     """Update a blogpost."""
+
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
 
     template_name = 'posts/edit.html'
     model = Post
