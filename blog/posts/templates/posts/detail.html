@@ -5,7 +5,9 @@
     <h1>{{ object.title }}</h1>
     <p>{{ object.body }}</p>
     <p>Published: {{ object.publication_date|date }}</p>
-    <!-- if user is authenticated -->
-    <a href="{% url 'update' object.pk %}">Update post</a>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'update' object.pk %}">Update post</a>
+    {% endif %}
 
 {% endblock %}
