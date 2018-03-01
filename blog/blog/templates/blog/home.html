@@ -1,7 +1,18 @@
 {% extends "blog/base.html" %}
 
 {% block body %}
-    
-    hello world
+
+    <h1>Posts</h1>
+    <ul>
+        {% for post in object_list %}
+            <li>
+                {{ post.date_published|date }} - {{ post.title }}
+                {{ post.body }}
+                <a href="{% url 'detail' post.pk %}">More</a>
+            </li>
+        {% empty %}
+            <li>No posts yet.</li>
+        {% endfor %}
+    </ul>
 
 {% endblock %}
