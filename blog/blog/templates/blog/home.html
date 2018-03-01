@@ -8,6 +8,7 @@
             <li>
                 {{ post.date_published|date }} - {{ post.title }}
                 {{ post.body }}
+                <a href="{% url 'update' post.pk %}">Update post</a>
             </li>
         {% empty %}
             <li>No posts yet.</li>
