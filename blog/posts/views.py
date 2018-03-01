@@ -1,5 +1,5 @@
 """Views for posts app."""
-from django.views.generic import CreateView, UpdateView, DetailView
+from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
 from posts.models import Post
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -39,3 +39,10 @@ class DetailView(DetailView):
         """Get data for detail view."""
         context = super().get_context_data(**kwargs)
         return context
+
+
+class PostDelete(LoginRequiredMixin, DeleteView):
+    """The Delete View."""
+
+    model = Post
+    success_url = reverse_lazy('home')
