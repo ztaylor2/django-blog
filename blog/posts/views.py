@@ -41,7 +41,7 @@ class DetailView(DetailView):
         return context
 
 
-class PostDelete(DeleteView):
+class PostDelete(LoginRequiredMixin, DeleteView):
     """The Delete View."""
 
     model = Post
