@@ -1,6 +1,6 @@
 """URLS for admin login."""
 from django.conf.urls import url
-from posts.views import CreateView, DetailView, UpdateView
+from posts.views import CreateView, DetailView, UpdateView, PostDelete
 
 urlpatterns = [
     url(r'^create/$',
@@ -12,4 +12,7 @@ urlpatterns = [
     url(r'^update/(?P<pk>\d+)/$',
         UpdateView.as_view(),
         name='update'),
+    url(r'^delete/(?P<pk>\d+)/$',
+        PostDelete.as_view(),
+        name='delete'),
 ]

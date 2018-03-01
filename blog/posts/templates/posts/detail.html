@@ -15,7 +15,8 @@
                     </div>
                     <div class="card-footer">
                         {% if user.is_authenticated %}
-                            <a href="{% url 'update' object.pk %}">Update post</a>
+                            <a href="{% url 'update' object.pk %}">Update</a> - 
+                            <a class="text-danger" href="{% url 'delete' object.pk %}">Delete</a>
                         {% endif %}
                         <div class="float-right">{{ object.publication_date|date }}</div>
                     </div>
