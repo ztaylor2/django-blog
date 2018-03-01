@@ -2,17 +2,25 @@
 
 {% block body %}
 
-    <h1>Posts</h1>
-    <ul>
-        {% for post in object_list reversed %}
-            <li>
-                {{ post.date_published|date }} - {{ post.title }}
-                {{ post.body }}
-                <a href="{% url 'detail' post.pk %}">More</a>
-            </li>
-        {% empty %}
-            <li>No posts yet.</li>
-        {% endfor %}
-    </ul>
+    <!-- <h1>Blog Posts</h1> -->
+
+    {% for post in object_list reversed %}
+    <div class="container" style="margin-top: 30px;">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.body }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'detail' post.pk %}">More</a>
+                        <div class="float-right">{{ post.publication_date|date }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 
 {% endblock %}
