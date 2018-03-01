@@ -1,7 +1,12 @@
-from django.urls import path
-
-from . import views
+"""URLS for admin login."""
+from django.conf.urls import url
+from posts.views import CreateView, DetailView
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    url(r'^create/$',
+        CreateView.as_view(),
+        name='create'),
+    url(r'^detail/$',
+        DetailView.as_view(),
+        name='detail'),
 ]

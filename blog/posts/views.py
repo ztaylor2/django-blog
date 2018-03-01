@@ -1,5 +1,14 @@
-from django.http import HttpResponse
+"""Views for posts app."""
+from django.views.generic import TemplateView
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+class CreateView(TemplateView):
+    """Create view."""
+
+    template_name = 'posts/create.html'
+
+
+class DetailView(TemplateView):
+    """Detail view."""
+
+    template_name = 'posts/detail.html'
