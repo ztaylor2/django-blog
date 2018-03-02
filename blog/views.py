@@ -12,6 +12,7 @@ class HomeView(ListView):
     def get_context_data(self, **kwargs):
         """Get data from post model."""
         context = super().get_context_data(**kwargs)
+        body_preview = ''
         if context['object_list']:
             body_preview = ' '.join(context['object_list'][0].body.split()[:100]) + '...'
         context['body_preview'] = body_preview
