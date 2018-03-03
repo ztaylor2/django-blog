@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', '')
 
 ALLOWED_HOSTS = []
 
@@ -129,4 +129,5 @@ ACCOUNT_ACTIVATION_DAYS = 7
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 REGISTRATION_OPEN = os.environ.get('REGISTRATION_OPEN', '')
 
-django_heroku.settings(locals())
+
+# django_heroku.settings(locals())

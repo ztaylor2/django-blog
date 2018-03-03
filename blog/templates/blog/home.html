@@ -9,9 +9,9 @@
         <div class="row justify-content-center">
             <div class="col-8">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="white-space: pre-wrap;">
                         <h5 class="card-title">{{ post.title }}</h5>
-                        <p class="card-text">{{ body_preview }}</p>
+                        <p class="card-text" style="white-space: pre-wrap;">{{ body_preview }}</p>
                     </div>
                     <div class="card-footer">
                         <a href="{% url 'detail' post.pk %}">More</a>
