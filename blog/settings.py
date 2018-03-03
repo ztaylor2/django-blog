@@ -129,5 +129,5 @@ ACCOUNT_ACTIVATION_DAYS = 7
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 REGISTRATION_OPEN = os.environ.get('REGISTRATION_OPEN', '')
 
-
-# django_heroku.settings(locals())
+if not DEBUG:
+    django_heroku.settings(locals())
