@@ -16,7 +16,8 @@
                             <a href="{% url 'update' object.pk %}">Update</a> - 
                             <a class="text-danger" href="{% url 'delete' object.pk %}">Delete</a>
                         {% endif %}
-                        <div class="float-right">{{ object.publication_date|date }}</div>
+                            <a href="{% url 'home' %}">Home</a>
+                            <div class="float-right">{{ object.publication_date|date }}</div>
                     </div>
                 </div>
             </div>
