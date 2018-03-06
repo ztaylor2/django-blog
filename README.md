@@ -1,2 +1,5 @@
 # django-blog
-A blog built on Python's Django framework. 
+
+My personal blog, built with Python's Django framework. 
+
+Deployment: http://www.zacharymichaeltaylor.com
