@@ -4,7 +4,7 @@
 
     <h1 style="margin-top: 40px;">Zachary M. Taylor's Blog</h1>
 
-    {% for title, body, date, pk in body_previews reversed %}
+    {% for title, body, date, pk in body_previews %}
     <div class="container" style="margin-top: 40px;">
         <div class="row justify-content-center">
             <div class="col-8">
@@ -22,5 +22,49 @@
         </div>
     </div>
     {% endfor %}
+
+
+    <div class="form-group row justify-content-md-center" style="margin-top: 30px;">
+        {% if is_paginated %}
+            <ul class="pagination">
+                <div class="btn-group mr-2" role="group">
+
+                    {% if page_obj.has_previous %}
+                        <li class="btn btn-success" style="background-color: #007bff; border-color: #007bff">
+                            <a href="?page={{ page_obj.previous_page_number }}" style="color: white;">&laquo;</a>
+                        </li>
+                    {% else %}
+                        <li class="disabled btn btn-success" style="background-color: #007bff; border-color:">
+                            <span>&laquo;</span>
+                        </li>
+                    {% endif %}
+
+                    {% for i in paginator.page_range %}
+                        {% if page_obj.number == i %}
+                            <li class="btn btn-success" style="background-color: #0048ff; border-color: #0048ff">
+                                <span>{{ i }} <span class="sr-only">(current)</span></span>
+                            </li>
+                        {% else %}
+                            <li class="btn btn-success"  style="background-color: #007bff; border-color: #007bff">
+                                <a href="?page={{ i }}" style="color: white;">{{ i }}</a>
+
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                        <li class="btn btn-success" style="background-color: #007bff; border-color: #007bff">
+                            <a href="?page={{ page_obj.next_page_number }}" style="color: white;">&raquo;</a>
+                        </li>
+                    {% else %}
+                        <li class="disabled btn btn-success" style="background-color: #007bff; border-color:">
+                            <span>&raquo;</span>
+                        </li>
+                    {% endif %}
+
+                </div>
+            </ul>
+        {% endif %}
+    </div>
 
 {% endblock %}
