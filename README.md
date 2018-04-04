@@ -2,4 +2,4 @@
 
 My personal blog, built with Python's Django framework. 
 
-Deployment: http://www.zacharymichaeltaylor.com
+Deployment: http://www.zacharymichaeltaylor.blog
