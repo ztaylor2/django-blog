@@ -8,7 +8,7 @@ class HomeView(ListView):
 
     template_name = 'blog/home.html'
     model = Post
-    queryset = Post.objects.order_by('publication_date')
+    queryset = Post.objects.order_by('publication_date').reverse()
     paginate_by = 10
 
     def get_context_data(self, **kwargs):
