@@ -31,7 +31,7 @@
 
                     {% if page_obj.has_previous %}
                         <li class="btn btn-success" style="background-color: #00bd70; border-color: #00bd70">
-                            <a href="?{% url_replace request 'page' page_obj.previous_page_number %}" style="color: white;">&laquo;</a>
+                            <a href="?page={{ page_obj.previous_page_number }}" style="color: white;">&laquo;</a>
                         </li>
                     {% else %}
                         <li class="disabled btn btn-success" style="background-color: #00bd70; border-color:">
@@ -46,7 +46,7 @@
                             </li>
                         {% else %}
                             <li class="btn btn-success"  style="background-color: #00bd70; border-color: #00bd70">
-                                <a href="?{% url_replace request 'page' i %}" style="color: white;">{{ i }}</a>
+                                <a href="?page={{ i }} style="color: white;">{{ i }}</a>
 
                             </li>
                         {% endif %}
@@ -54,7 +54,7 @@
 
                     {% if page_obj.has_next %}
                         <li class="btn btn-success" style="background-color: #00bd70; border-color: #00bd70">
-                            <a href="?{% url_replace request 'page' page_obj.next_page_number %}" style="color: white;">&raquo;</a>
+                            <a href="?page={{ page_obj.next_page_number }}" style="color: white;">&raquo;</a>
                         </li>
                     {% else %}
                         <li class="disabled btn btn-success" style="background-color: #00bd70; border-color:">
@@ -67,5 +67,23 @@
         {% endif %}
     </div>
 
+<!--     <div class="pagination">
+        <span class="step-links">
+            {% if contacts.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ contacts.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+            </span>
+
+            {% if contacts.has_next %}
+                <a href="?page={{ contacts.next_page_number }}">next</a>
+                <a href="?page={{ contacts.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+ -->
 
 {% endblock %}
