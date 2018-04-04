@@ -23,4 +23,49 @@
     </div>
     {% endfor %}
 
+
+    <div class="form-group row justify-content-md-center">
+        {% if is_paginated %}
+            <ul class="pagination">
+                <div class="btn-group mr-2" role="group">
+
+                    {% if page_obj.has_previous %}
+                        <li class="btn btn-success" style="background-color: #00bd70; border-color: #00bd70">
+                            <a href="?{% url_replace request 'page' page_obj.previous_page_number %}" style="color: white;">&laquo;</a>
+                        </li>
+                    {% else %}
+                        <li class="disabled btn btn-success" style="background-color: #00bd70; border-color:">
+                            <span>&laquo;</span>
+                        </li>
+                    {% endif %}
+
+                    {% for i in paginator.page_range %}
+                        {% if page_obj.number == i %}
+                            <li class="active btn btn-success">
+                                <span>{{ i }} <span class="sr-only">(current)</span></span>
+                            </li>
+                        {% else %}
+                            <li class="btn btn-success"  style="background-color: #00bd70; border-color: #00bd70">
+                                <a href="?{% url_replace request 'page' i %}" style="color: white;">{{ i }}</a>
+
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                        <li class="btn btn-success" style="background-color: #00bd70; border-color: #00bd70">
+                            <a href="?{% url_replace request 'page' page_obj.next_page_number %}" style="color: white;">&raquo;</a>
+                        </li>
+                    {% else %}
+                        <li class="disabled btn btn-success" style="background-color: #00bd70; border-color:">
+                            <span>&raquo;</span>
+                        </li>
+                    {% endif %}
+
+                </div>
+            </ul>
+        {% endif %}
+    </div>
+
+
 {% endblock %}

@@ -9,6 +9,7 @@ class HomeView(ListView):
     template_name = 'blog/home.html'
     model = Post
     queryset = Post.objects.order_by('publication_date')
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         """Get data from post model."""
